@@ -1,0 +1,349 @@
+{
+	"info": {
+		"_postman_id": "d95461cd-81e8-4054-8afd-f79c62a2cc44",
+		"name": "hogwarts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetEmptyApplicant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/Applicants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Applicants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateApplicant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"applicantId\": {{applicantId}},\r\n    \"name\": \"{{name}}\",\r\n    \"lastName\": \"{{lastName}}\",\r\n    \"age\": {{age}},\r\n    \"house\": \"{{house}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/Applicants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Applicants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetApplicants",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length>=1).to.eql(true);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/Applicants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Applicants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetApplicantUpdated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const name = pm.variables.get(\"name\");\r",
+							"const applicantId = pm.variables.get(\"applicantId\");\r",
+							"const lastName = pm.variables.get(\"lastName\");\r",
+							"const age = pm.variables.get(\"age\");\r",
+							"const house = pm.variables.get(\"house\");\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(name);\r",
+							"    pm.expect(jsonData.lastName).to.eql(lastName);\r",
+							"    pm.expect(jsonData.age).to.eql(age);\r",
+							"    pm.expect(jsonData.applicantId).to.eql(applicantId);\r",
+							"    pm.expect(jsonData.house).to.eql(house);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/Applicants/{{applicantId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Applicants",
+						"{{applicantId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateApplicant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"applicantId\": {{applicantId}},\r\n    \"name\": \"{{name}}s\",\r\n    \"lastName\": \"{{lastName}}\",\r\n    \"age\": {{age}},\r\n    \"house\": \"{{house}}\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/Applicants/{{applicantId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Applicants",
+						"{{applicantId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetApplicantUpdated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const name = pm.variables.get(\"name\");\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(name+\"s\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/Applicants/{{applicantId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Applicants",
+						"{{applicantId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteApplicant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/Applicants/{{applicantId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Applicants",
+						"{{applicantId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmptyApplicant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/api/Applicants",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"Applicants"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

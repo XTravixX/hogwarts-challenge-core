@@ -286,3 +286,5 @@ D:\Development\hogwartsChallengeCore\obj\Debug\net6.0\hogwarts-challenge-core.dl
 D:\Development\hogwartsChallengeCore\obj\Debug\net6.0\refint\hogwarts-challenge-core.dll
 D:\Development\hogwartsChallengeCore\obj\Debug\net6.0\hogwarts-challenge-core.pdb
 D:\Development\hogwarts-challenge-core\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+D:\Development\hogwarts-challenge-core\bin\Debug\net6.0\test\hogwarts.postman_collection.json
+D:\Development\hogwarts-challenge-core\bin\Debug\net6.0\test\test-case.json

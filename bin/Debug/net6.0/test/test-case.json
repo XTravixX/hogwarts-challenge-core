@@ -1,0 +1,10 @@
+[
+  {
+    "baseUrl": "https://localhost:7266",
+    "applicantId": 123456,
+    "name": "Ricardo",
+    "lastName": "Vivas",
+    "age": 88,
+    "house": "Gryffindor"
+  }
+]

@@ -43,11 +43,10 @@ namespace hogwarts_challenge_core.Controllers
         }
 
         // PUT: api/Applicants/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutApplicant(int id, Applicant applicant)
         {
-            if (id != applicant.ApplicantId)
+            if (id != applicant.applicantId)
             {
                 return BadRequest();
             }
@@ -74,7 +73,6 @@ namespace hogwarts_challenge_core.Controllers
         }
 
         // POST: api/Applicants
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Applicant>> PostApplicant(Applicant applicant)
         {
@@ -82,7 +80,7 @@ namespace hogwarts_challenge_core.Controllers
             _context.Applicants.Add(applicant);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetApplicant", new { id = applicant.ApplicantId }, applicant);
+            return CreatedAtAction("GetApplicant", new { id = applicant.applicantId }, applicant);
         }
 
         // DELETE: api/Applicants/5
@@ -103,7 +101,7 @@ namespace hogwarts_challenge_core.Controllers
 
         private bool ApplicantExists(int id)
         {
-            return _context.Applicants.Any(e => e.ApplicantId == id);
+            return _context.Applicants.Any(e => e.applicantId == id);
         }
     }
 }
